@@ -1,4 +1,36 @@
 <mat-toolbar class="max-w-7xl mx-auto border-x justify-between">
     <a routerLink="home"> E Store</a>
-    <mat-icon [matBadge]="1" matBadgeColor="warn">shopping_cart</mat-icon>
+    <button mat-icon-button [mat-menu-trigger-for]="menu">
+        <mat-icon [matBadge]="1" matBadgeColor="warn">shopping_cart</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <div class="p-3 divide-y divide-solid">
+            <div class="pb-3 flex justify-between">
+                <span class="mr-16"> 1 item</span>
+                <a routerLink="cart"> View Cart</a>
+            </div>
+            <div class="py-3">
+                <div class="flex justify-between font-light mb-2">
+                    <span>{{item1}}</span>
+                    <span class="font-bold"> {{ price1 | currency:"INR":"symbol"}}</span>
+                </div>
+                <div class="flex justify-between font-light mb-2">
+                    <span>{{item2}}</span>
+                    <span class="font-bold"> {{ price2 | currency:"INR":"symbol"}}</span>
+                </div>
+                <div class="flex justify-between font-light mb-2">
+                    <span>{{item3}}</span>
+                    <span class="font-bold"> {{ price3 | currency:"INR":"symbol"}}</span>
+                </div>
+                <div class="flex justify-between font-light mb-2">
+                    <span>{{item4}}</span>
+                    <span class="font-bold"> {{ price4 | currency:"INR":"symbol"}}</span>
+                </div>
+                <div class="flex justify-between py-3 font-light">
+                    <span>Total:</span>
+                    <span class="font-bold"> {{totalPrice() | currency:"INR":"symbol"}}</span>
+                </div>
+            </div>
+        </div>
+    </mat-menu>
 </mat-toolbar>
